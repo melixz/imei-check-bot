@@ -10,6 +10,8 @@ python = "^3.12"
 pydantic-settings = "^2.7.1"
 aiogram = "^3.17.0"
 ruff = "^0.9.4"
+fastapi = "^0.115.8"
+uvicorn = "^0.34.0"
 
 
 [build-system]

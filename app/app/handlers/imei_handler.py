@@ -31,9 +31,9 @@ def register_imei_handler(dp: Dispatcher):
     dp.message.register(
         handle_imei,
         lambda message: (
-            message.content_type == types.ContentType.TEXT and
-            message.text and
-            len(message.text.strip()) == 15 and
-            message.text.strip().isdigit()
-        )
+            message.content_type == types.ContentType.TEXT
+            and message.text
+            and len(message.text.strip()) == 15
+            and message.text.strip().isdigit()
+        ),
     )

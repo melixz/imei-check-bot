@@ -45,3 +45,9 @@ async def api_check_imei(
         raise HTTPException(status_code=500, detail=f"Error checking IMEI: {str(e)}")
 
     return result
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host="0.0.0.0", port=8000)

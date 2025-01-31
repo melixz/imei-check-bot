@@ -139,6 +139,18 @@ docker-compose stop bot
    ```
 3. Бот ответит информацией о статусе устройства.
 
+**Пример ответа:**
+
+```
+   Результат проверки IMEI:
+IMEI: 353272491542872
+MEID: 35327249154287
+Serial: YN0OPHSXT0
+Warranty Status: Out Of Warranty
+Sim Lock: Yes
+GSMA Blacklisted: No
+```
+
 ---
 
 ### **Использование API**

@@ -1,12 +1,14 @@
 [tool.poetry]
-name = "sak-bot"
+name = "imei-check-bot"
 version = "0.1.0"
 description = ""
-authors = ["Vlad  <dr.melix@gmail.com>"]
+authors = ["melixz <dr.melix@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+pydantic-settings = "^2.7.1"
+aiogram = "^3.17.0"
 
 
 [build-system]

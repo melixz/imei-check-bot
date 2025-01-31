@@ -36,9 +36,15 @@
 4. **Запустите приложение:**
 
    ```bash
-   poetry run python app/main.py
+   poetry run python app/app/main.py
    ```
 
+5. **Запустите FastAPI:**
+
+   ```bash
+   poetry run python /app/app/api.py
+   ```
+   
 ---
 
 ### **2. Установка через Docker**

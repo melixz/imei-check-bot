@@ -8,54 +8,104 @@
 
 ## **Установка**
 
-### **1. Локальная установка**
+## 1. Установка зависимостей
 
-1. **Клонируйте репозиторий:**
+**Клонируйте репозиторий:**
 
    ```bash
    git clone https://github.com/melixz/imei-check-bot.git
    cd imei-check-bot
    ```
 
-2. **Настройте переменные окружения** в файле `.env`:
+Перед запуском убедитесь, что у вас установлен [Poetry](https://python-poetry.org/docs/#installation).
 
-   ```env
-   TELEGRAM_BOT_TOKEN=
-   ALLOWED_USER_IDS=
-   API_AUTH_TOKEN=some_random_token
-   IMEICHECK_API_TOKEN=
-   IMEICHECK_API_URL=https://api.imeicheck.net
-   ```
+```sh
+poetry install
+```
 
-3. **Установите зависимости через Poetry:**
-
-   ```bash
-   poetry install
-   ```
-
-4. **Запустите приложение:**
-
-   ```bash
-   poetry run python app/app/main.py
-   ```
-
-5. **Запустите FastAPI:**
-
-   ```bash
-   poetry run python /app/app/api.py
-   ```
-   
----
-
-### **2. Установка через Docker**
-
-1. **Запустите контейнер с помощью Docker Compose:**
-
-   ```bash
-   docker-compose up --build -d
-   ```
+Если вы используете Docker, зависимости будут установлены автоматически в контейнере.
 
 ---
+
+## 2. Запуск FastAPI
+
+### 2.1 Запуск напрямую с Poetry
+
+```sh
+poetry run uvicorn app.app.api:app --host 0.0.0.0 --port 8000 --reload
+```
+
+### 2.2 Запуск через Docker
+
+```sh
+docker-compose up -d api
+```
+
+После этого API будет доступен по адресу: [http://localhost:8000](http://localhost:8000)
+
+---
+
+## 3. Запуск бота
+
+### 3.1 Запуск напрямую с Poetry
+
+```sh
+poetry run python app/app/main.py
+```
+
+### 3.2 Запуск через Docker
+
+```sh
+docker-compose up -d bot
+```
+
+Бот начнёт слушать обновления.
+
+---
+
+## 4. Полный запуск через Docker
+
+```sh
+docker-compose up -d
+```
+
+Это запустит и API, и бота.
+
+---
+
+## 5. Остановка
+
+Остановить сервисы можно командой:
+
+```sh
+docker-compose down
+```
+
+Или только API:
+
+```sh
+docker-compose stop api
+```
+
+Или только бота:
+
+```sh
+docker-compose stop bot
+```
+
+---
+
+## 6. Makefile
+
+Также можно использовать короткие команды Make:
+
+- `make install` – установить зависимости.
+- `make up` – запустить весь проект в Docker.
+- `make down` – остановить контейнеры.
+- `make restart` – перезапустить контейнеры.
+- `make logs` – просмотреть логи всех сервисов.
+- `make api` – запустить только API.
+- `make bot` – запустить только бота.
 
 ## **Технологии**
 
